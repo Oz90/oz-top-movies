@@ -62,7 +62,7 @@ function Home() {
     /* Using timeout to force show the loading state, incase the api fetch is too quick! */
     setTimeout(function () {
       setLoading(false);
-    }, 700);
+    }, 1000);
   };
 
   const startFetchingMovies = async () => {
