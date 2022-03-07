@@ -99,9 +99,7 @@ function Home() {
         </div>
         {startFetch ? (
           loading ? (
-            <section className="section loading">
-              <h1>Loading...</h1>
-            </section>
+            <section className="section loading"></section>
           ) : (
             <div className="movies-center">
               <GenresMenu
