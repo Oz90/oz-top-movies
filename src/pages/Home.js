@@ -93,19 +93,19 @@ function Home() {
 
   return (
     <main>
-      {startFetch ? (
-        loading ? (
-          <section className="section loading">
-            <h1>Loading...</h1>
-          </section>
-        ) : (
-          <section className="section">
-            <div className="title">
-              <Link to="/">
-                <h2 className="section-header">The Movie DB</h2>
-              </Link>
-              <div className="underline"></div>
-            </div>
+      <section className="section">
+        <div className="title">
+          <Link to="/">
+            <h2 className="section-header">The Movie DB</h2>
+          </Link>
+          <div className="underline"></div>
+        </div>
+        {startFetch ? (
+          loading ? (
+            <section className="section loading">
+              <h1>Loading...</h1>
+            </section>
+          ) : (
             <div className="movies-center">
               <GenresMenu
                 allGenres={allGenres}
@@ -116,13 +116,16 @@ function Home() {
                 <MovieList movies={movies} />
               </article>
             </div>
-          </section>
-        )
-      ) : (
-        <button onClick={startFetchingMovies} className="btn btn-fetch-movies">
-          Hämta Filmer
-        </button>
-      )}
+          )
+        ) : (
+          <button
+            onClick={startFetchingMovies}
+            className="btn btn-fetch-movies"
+          >
+            Hämta Filmer
+          </button>
+        )}
+      </section>
     </main>
   );
 }
