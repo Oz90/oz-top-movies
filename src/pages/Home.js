@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 function Home() {
-  const { startFetch, setStartFetch } = useGlobalContext();
-  const [loading, setLoading] = useState(true);
+  const { startFetch, setStartFetch, loading, setLoading } = useGlobalContext();
   const [movies, setMovies] = useState([]);
   const [allMovies, setAllMovies] = useState([]);
   const [genres, setGenres] = useState([]);
@@ -95,9 +94,7 @@ function Home() {
     <main>
       <section className="section">
         <div className="title">
-          <Link to="/">
-            <h2 className="section-header">The Movie DB</h2>
-          </Link>
+          <h2 className="section-header">The Movie DB</h2>
           <div className="underline"></div>
         </div>
         {startFetch ? (
