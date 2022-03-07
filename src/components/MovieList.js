@@ -15,12 +15,12 @@ const MovieList = ({ movies }) => {
   }
 
   return (
-    <section>
+    <section className="movies">
       {movies.map((movieItem) => {
         const { id, original_title, poster_path, release_date, vote_average } =
           movieItem;
         return (
-          <Link to={`/movie/${id}`} key={id}>
+          <Link to={`/movie/${id}`} key={id} className="movie">
             <article>
               <img
                 /* Hardcoded link, does this need to be dynamic in some way
@@ -28,8 +28,8 @@ const MovieList = ({ movies }) => {
                 src={`https://image.tmdb.org/t/p/original/${poster_path}`}
                 alt={original_title}
               />
-              <div>
-                <h3>{original_title}</h3>
+              <div className="movie-info">
+                <h3 className="movie-title">{original_title}</h3>
                 <h4 className={checkScore(vote_average)}>
                   Score: {vote_average}
                 </h4>

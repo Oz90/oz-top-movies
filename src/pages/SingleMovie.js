@@ -46,13 +46,13 @@ export default function SingleMovie() {
 
   if (loading) {
     return (
-      <section>
+      <section className="section loading">
         <h1>Loading...</h1>
       </section>
     );
   }
   if (!movie) {
-    return <h2>no movie to display</h2>;
+    return <h2 className="section-title">no movie to display</h2>;
   } else {
     const {
       original_title,
@@ -64,31 +64,35 @@ export default function SingleMovie() {
       genres,
     } = movie;
     return (
-      <section>
-        <Link to="/">back home</Link>
-        <h2>
+      <section className="section">
+        <Link to="/" className="btn">
+          back home
+        </Link>
+        <h2 className="section-title">
           {original_title}
-          <span>({release_date.substring(0, 4)})</span>
+          <span className="single-movie-year">
+            ({release_date.substring(0, 4)})
+          </span>
         </h2>
-        <div>
+        <div className="single-movie">
           <img src={`${imageUrl}${poster_path}`} alt={original_title} />
-          <div>
+          <div className="single-movie-info">
             <p>
-              <span>Description:</span> {overview}
+              <span className="single-movie-data">Description:</span> {overview}
             </p>
             <p>
-              <span>Release date:</span>
+              <span className="single-movie-data">Release date:</span>{" "}
               {release_date}
             </p>
             <p>
-              <span>Score:</span> {vote_average}
+              <span className="single-movie-data">Score:</span> {vote_average}
             </p>
             <p>
-              <span>Runtime: </span>
+              <span className="single-movie-data">Runtime: </span>
               {timeConverter(runtime)}
             </p>
             <p>
-              <span>Genres:</span>
+              <span className="single-movie-data">Genres:</span>
               {genres.map((genre, index, arr) => {
                 /* Checks if it's last item in the array, if so doesn't att the comma at the end. */
                 return arr.length - 1 === index ? (

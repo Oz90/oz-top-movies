@@ -6,12 +6,13 @@ const GenresMenu = ({ allGenres, genres, filterMoviesByGenre }) => {
   The genres prop is the genres data fetched from TMDB API. This holds an array
   with objects containing all the genres with their ID and their NAME. */
   return (
-    <div>
+    <div className="btn-container">
       {allGenres.map((singleGenre, index) => {
         if (singleGenre === "all")
           return (
             <button
               type="button"
+              className="filter-btn"
               key={index}
               onClick={() => filterMoviesByGenre(singleGenre)}
             >
@@ -26,6 +27,7 @@ const GenresMenu = ({ allGenres, genres, filterMoviesByGenre }) => {
               return (
                 <button
                   type="button"
+                  className="filter-btn"
                   key={index}
                   onClick={() => filterMoviesByGenre(singleGenre)}
                 >

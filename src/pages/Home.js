@@ -95,18 +95,18 @@ function Home() {
     <main>
       {startFetch ? (
         loading ? (
-          <section>
+          <section className="section loading">
             <h1>Loading...</h1>
           </section>
         ) : (
-          <section>
-            <div>
+          <section className="section">
+            <div className="title">
               <Link to="/">
-                <h2>The Movie DB</h2>
+                <h2 className="section-header">The Movie DB</h2>
               </Link>
-              <div></div>
+              <div className="underline"></div>
             </div>
-            <div>
+            <div className="movies-center">
               <GenresMenu
                 allGenres={allGenres}
                 genres={genres}
@@ -119,7 +119,9 @@ function Home() {
           </section>
         )
       ) : (
-        <button onClick={startFetchingMovies}>Hämta Filmer</button>
+        <button onClick={startFetchingMovies} className="btn btn-fetch-movies">
+          Hämta Filmer
+        </button>
       )}
     </main>
   );
